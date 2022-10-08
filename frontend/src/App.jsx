@@ -20,6 +20,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/company-list" element={<Companylist/>} />
             <Route path="/signup" element={<Signup contractAddress={connected}/>}/>
+            <Route path="/companydetail" element={<Companydetail contractAddress={connected}/>}/>
           </Routes>
       </React.Fragment>
     </BrowserRouter>
