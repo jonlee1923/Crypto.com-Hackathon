@@ -1,0 +1,93 @@
+.companydetail{
+    width:fit-content;
+    height:fit-content;
+}
+
+.bgimg{
+    width:100%;
+    height:auto;
+    position:absolute;
+}
+
+.arrow{
+    position:absolute;
+    top:200px;
+    cursor:pointer;
+}
+
+.cover{
+    position:relative;
+    top:600px;
+    background-color:white;
+    width:100%;
+    height:700px;
+    z-index:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+}
+
+.sidebar{
+    position:relative;
+    height:auto;
+}
+
+.logo{
+    position:relative;
+    left:150px;
+    border-radius:10px;
+}
+
+.name{
+    position:relative;
+    left:275px;
+    font-size:30px;
+}
+
+.description{
+    font-size:20px;
+}
+
+.donation{
+    padding:20px;
+}
+
+.rightbar{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.fixprice p{
+    display:inline-block;
+    margin-right:20px;
+    border:3px solid black;
+    border-radius:10px;
+    text-align: center;
+    width:50px;
+    height:auto;
+    cursor:pointer;
+
+}
+
+.otheramounts{
+    position:relative;
+}
+
+.currencycode{
+    position:absolute;
+    left:8px;
+    top:10px;
+}
+
+.textcurrency{
+    padding:10px 20px;
+    border:solid 1px #ccc;
+    border-radius:5px;
+}
+
+.total{
+    background-color:#ccc;
+    margin-top:10px;
+    border-radius:10px;
+    padding-left:5px;
+}

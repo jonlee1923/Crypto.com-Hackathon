@@ -5,8 +5,9 @@ import React, { useContext } from "react";
 import { DnsContext } from "./context/DnsContext";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
-import Companylist from "./components/Companylist";
+import Companylist from "./components/Companylist/Companylist";
 import Signup from "./components/Signup/Signup.jsx"
+import Companydetail from "./components/Companydetail/Companydetail";
 
 function App() {
   const { connected, connectWallet } = useContext(DnsContext);
@@ -19,6 +20,8 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/company-list" element={<Companylist/>} />
             <Route path="/signup" element={<Signup/>}/>
+            <Route path="/companydetail" element={<Companydetail/>}/>
+
           </Routes>
       </React.Fragment>
     </BrowserRouter>

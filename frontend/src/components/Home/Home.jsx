@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef} from "react";
 
 import styles from "./Home.module.css";
 import Button from "react-bootstrap/esm/Button";
@@ -6,6 +6,7 @@ import Card from "../Card/Card.jsx";
 import {useNavigate} from "react-router-dom";
 
 export default function Home() {
+  
   const environment = require("../../assets/environment.jpg");
   const pollution = require("../../assets/pollution.jpeg");
   const solution = require("../../assets/solution.jpg");
@@ -13,6 +14,9 @@ export default function Home() {
   const companies = require("../../assets/companies.jpg");
 
   const navigate = useNavigate();
+  const scrollRef = useRef();
+
+  const executeScroll = () => {scrollRef.current.scrollIntoView()};
 
   return (
     <div className={`${styles.home}`}>
@@ -26,7 +30,7 @@ export default function Home() {
           Reuse the past <br /> Recycle the Present <br />
           Save the Future
         </p>
-        <Button className={`btn btn-primary btn-lg ${styles.differencebtn}`}>
+        <Button className={`btn btn-primary btn-lg ${styles.differencebtn}`} onClick={executeScroll}>
           Make a difference now!
         </Button>
       </section>
@@ -105,7 +109,7 @@ export default function Home() {
           </Card>
         </ul>
       </section>
-      <section className={`${styles.signupsection}`}>
+      <section className={`${styles.signupsection}`} ref={scrollRef}>
         <h1>Participation:</h1>
         <div className={`${styles.users}`}>
           <img src={users} alt="users" className={`${styles.usersimg}`} />
