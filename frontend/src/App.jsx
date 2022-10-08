@@ -6,6 +6,7 @@ import { DnsContext } from "./context/DnsContext";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import Companylist from "./components/Companylist";
+import Signup from "./components/Signup/Signup.jsx"
 
 function App() {
   const { connected, connectWallet } = useContext(DnsContext);
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/company-list" element={<Companylist/>} />
+            <Route path="/signup" element={<Signup/>}/>
           </Routes>
       </React.Fragment>
     </BrowserRouter>
