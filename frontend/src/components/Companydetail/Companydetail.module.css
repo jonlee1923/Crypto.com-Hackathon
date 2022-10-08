@@ -50,6 +50,7 @@
 
 .donation{
     padding:20px;
+    width:800px;
 }
 
 .rightbar{
@@ -63,7 +64,7 @@
     border:3px solid black;
     border-radius:10px;
     text-align: center;
-    width:50px;
+    width:100px;
     height:auto;
     cursor:pointer;
 
@@ -76,29 +77,30 @@
 .currencycode{
     position:absolute;
     left:8px;
-    top:10px;
+    top:11px;
+    margin:20px 20px 20px 0;
+
 }
 
 .textcurrency{
     padding:10px 20px;
     border:solid 1px #ccc;
     border-radius:5px;
+    width:100%;
+    margin:20px 20px 20px 0;
 }
 
 .total{
     background-color:#ccc;
-    margin-top:10px;
+    margin-top:20px;
     border-radius:10px;
     padding-left:5px;
 }
 .conversion{
     background-color:lightblue;
     border-radius:10px;
-    /* padding-top:3px;
-    padding-right:3px;
-    padding-left:3px;
-     */
      padding:2px;
-     margin: 5px 5px 5px 0;
+     margin: 20px 20px 20px 0;
      width:fit-content;
+    
 }

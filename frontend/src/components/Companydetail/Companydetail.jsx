@@ -73,12 +73,11 @@ const Companydetail = () => {
           <section className={`${styles.maininfo}`}>
             <p>MAP</p>
           </section>
-          <section className={`${styles.donation}`}>
-            <Card>
-              <h3>Support us!</h3>
-              <div className={`${styles.conversion}`}>
-                <p>$1=1kg</p>
-              </div>
+
+          <Card>
+            <section className={`${styles.donation}`}>
+              <h2>Support us!</h2>
+              <p className={`${styles.conversion}`}>$1=1kg</p>
               <div className={`${styles.fixprice}`}>
                 <p
                   onClick={colourFiveHandler}
@@ -123,8 +122,8 @@ const Companydetail = () => {
                 {tenClick ? <p>Total Payment: $50 </p> : null}
                 {twoClick ? <p>Total Payment: $200 </p> : null}
               </div>
-            </Card>
-          </section>
+            </section>
+          </Card>
         </div>
       </div>
     </div>
