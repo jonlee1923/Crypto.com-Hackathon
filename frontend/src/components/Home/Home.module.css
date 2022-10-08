@@ -1,0 +1,122 @@
+h1{
+    text-align:center;
+    padding-bottom:10px;
+    text-decoration:underline;
+    color: blue;
+}
+/* Caption Section */
+.captionsection {
+  position: relative;
+}
+
+.environment {
+  width: 100%;
+  height: 700px;
+  border-radius:10px;
+}
+
+.quote {
+  position: absolute;
+  top: 150px;
+  left: 550px;
+  color: white;
+  font-size: 50px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.differencebtn {
+  position: absolute;
+  top: 400px;
+  right: 650px;
+}
+
+
+
+/* Challenge Section */
+
+.challengesection {
+  position: relative;
+  padding:50px;
+}
+
+.pollutionimg {
+  position: absolute;
+  top: 110px;
+  right: 40px;
+  width: 500px;
+  height: auto;
+  border-radius:10px;
+
+}
+/* Solution Section */
+
+.solutionsection {
+  position: relative;
+  margin:50px;
+}
+
+.connectingbtn{
+    border:none;
+    outline:none;
+    background-color:transparent;
+}
+
+.solutionimg{
+    width: 580px;
+    height: auto;
+    border-radius:10px;
+}
+
+.solutionlist{
+    position:absolute;
+    left:750px;
+    top:150px;
+
+}
+
+/* Signup Section */
+.signupsection{
+    position:relative;
+    margin:50px;
+}
+
+.usersimg{
+    border-radius:10px;
+    width:575px;
+    height:auto;
+}
+
+.companiesimg{
+    margin-top:50px;
+    border-radius:10px;
+    width:575px;
+    height:auto;
+}
+
+.userslist{
+    position:absolute;
+    top:150px;
+    right:100px;
+}
+
+.companieslist{
+    position:absolute;
+    top:600px;
+    right:100px;
+}
+.signupsection li{
+    font-size:20px;
+}
+
+.userbtn{
+    position:relative;
+    top:10px;
+    left:120px;
+}
+
+.companiesbtn{
+    position:relative;
+    top:10px;
+    left:170px;
+}

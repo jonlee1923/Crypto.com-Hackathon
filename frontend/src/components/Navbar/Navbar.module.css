@@ -13,6 +13,8 @@
 }
 
 .brand{
+    position:relative;
+    right:100px;
     height:100px;
 }
 
