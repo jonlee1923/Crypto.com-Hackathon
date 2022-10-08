@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
 import { useForm } from "../hooks/form-hook";
 import { useHttpClient } from "../hooks/http-hook";
-import { DnsContext } from "../../context/DnsContext";
-import styles from "./Signup.module.css";
+// import { DnsContext } from "../../context/DnsContext";
+// import styles from "./Signup.module.css";
 import Input from "./Input";
 import ImageUpload from "./ImageUpload";
 import {
@@ -16,7 +16,7 @@ import {
 
 export default function Signup(props) {
     const navigate = useNavigate();
-    const { connected, connectWallet } = useContext(DnsContext);
+    // const { connected, connectWallet } = useContext(DnsContext);
 
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [formState, inputHandler] = useForm(

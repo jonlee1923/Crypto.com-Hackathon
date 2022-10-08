@@ -11,7 +11,7 @@ import Companydetail from "./components/Companydetail/Companydetail";
 import NFTlist from "./components/NFTlist/NFTlist";
 
 function App() {
-  const { connected, connectWallet } = useContext(DnsContext);
+  const { connected, connectWallet, marketPlace, nft} = useContext(DnsContext);
 
   return (
     <BrowserRouter>
@@ -22,7 +22,7 @@ function App() {
             <Route path="/company-list" element={<Companylist/>} />
             <Route path="/signup" element={<Signup contractAddress={connected}/>}/>
             <Route path="/companydetail" element={<Companydetail contractAddress={connected}/>}/>
-            <Route path="/NFTlist" element={<NFTlist contractAddress={connected}/>}/>
+            {/* <Route path="/NFTlist" element={<NFTlist contractAddress={connected} marketPlace={marketPlace} nft={nft} />}/> */}
           </Routes>
       </React.Fragment>
     </BrowserRouter>

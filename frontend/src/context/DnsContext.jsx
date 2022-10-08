@@ -1,55 +1,80 @@
-import React, {useEffect, useState} from 'react';
-// import {ethers} from 'ethers';
-// import {contractABI, contractAddress} from '../utils/constants';
+import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import MarketplaceAbi from "../contractsData/Marketplace.json";
+import MarketplaceAddress from "../contractsData/Marketplace-address.json";
+import NFTAbi from "../contractsData/NFT.json";
+import NFTAddress from "../contractsData/NFT-address.json";
 export const DnsContext = React.createContext();
 
-const {ethereum} = window;
+const { ethereum } = window;
 
-// const getEthereumContract = () => {
+// const getMarketPlaceContract = () => {
 //     const provider = new ethers.providers.Web3Provider(ethereum);
 //     const signer = provider.getSigner();
-//     const dnsContract = new ethers.Contract(contractAddress, contractABI, signer);
+//     const marketplaceContract = new ethers.Contract(
+//         MarketplaceAddress,
+//         MarketplaceAbi,
+//         signer
+//     );
+//     const nftContract = new ethers.Contract(
+//         NFTAddress,
+//         NFTAbi,
+//         signer
+//     );
 
-//     return dnsContract;
-// }
+//     return {marketplaceContract, nftContract};
+// };
 
-export const DnsProvider = ({children}) => {
-    const[connected, setCurrentAccount] = useState("")
+export const DnsProvider = ({ children }) => {
+    const [connected, setCurrentAccount] = useState("");
 
-    const checkIfWalletIsConnected = async() => {
-        try{
+    // const [marketPlace, nft] = getContracts();
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
+
+
+    const marketplaceContract = new ethers.Contract(
+        MarketplaceAddress.address,
+        MarketplaceAbi.abi,
+        signer
+    );
+    const nftContract = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer);
+
+    const checkIfWalletIsConnected = async () => {
+        try {
             if (!ethereum) return alert("Please install Metamask");
 
-            const accounts = await ethereum.request({method: 'eth_accounts'});
+            const accounts = await ethereum.request({ method: "eth_accounts" });
 
-            if(accounts.length){
+            if (accounts.length) {
                 setCurrentAccount(accounts[0]);
-            }else{
+            } else {
                 console.log("No accounts found");
             }
-
-        }catch(error){
+        } catch (error) {
             console.log(error);
             throw new Error("No ethereum object");
         }
-    }
+    };
 
     const connectWallet = async () => {
-        try{
-            if(!ethereum) return alert("Please install Metamask");
+        try {
+            if (!ethereum) return alert("Please install Metamask");
 
-            const accounts = await ethereum.request({method: "eth_requestAccounts",});
+            const accounts = await ethereum.request({
+                method: "eth_requestAccounts",
+            });
 
             setCurrentAccount(accounts[0]);
 
             // window.location.reload();
-        }catch (error){
+        } catch (error) {
             console.log(error);
             throw new Error("No ethereum object");
         }
-    }
+    };
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(connected);
     }, [connected]);
 
@@ -57,9 +82,17 @@ export const DnsProvider = ({children}) => {
         checkIfWalletIsConnected();
     }, []);
 
-    return(
-        <DnsContext.Provider value={{connectWallet, checkIfWalletIsConnected, connected}}>
+    return (
+        <DnsContext.Provider
+            value={{
+                connectWallet,
+                checkIfWalletIsConnected,
+                connected,
+                marketplaceContract,
+                nftContract,
+            }}
+        >
             {children}
         </DnsContext.Provider>
-    )
-}
+    );
+};
