@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./Home.module.css";
 import Button from "react-bootstrap/esm/Button";
 import Card from "../Card/Card.jsx";
+import {useNavigate} from "react-router-dom";
 
 export default function Home() {
   const environment = require("../../assets/environment.jpg");
@@ -10,6 +11,8 @@ export default function Home() {
   const solution = require("../../assets/solution.jpg");
   const users = require("../../assets/users.jpg");
   const companies = require("../../assets/companies.jpg");
+
+  const navigate = useNavigate();
 
   return (
     <div className={`${styles.home}`}>
@@ -128,9 +131,7 @@ export default function Home() {
               <h3>Contributing as a project!</h3>
               <li>Reach out to the community for more financial support!</li>
               <li>Show the world the impact the organisation is making</li>
-              <Button className={`btn btn-primary btn-lg ${styles.companiesbtn}`}>Join Lumeel!</Button>
-
-
+              <Button className={`btn btn-primary btn-lg ${styles.companiesbtn}`} onClick={()=>navigate("/signup")}>Join Lumeel!</Button>
             </Card>
           </ul>
         </div>
