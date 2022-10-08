@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const HttpError = require("../models/http-error");
 const getCoordsForAddress = require("../utils/location");
 const Organisation = require("../models/organisation");
+const { request } = require("express");
 
 
 const getAllOrganisations = async (req, res, next) => {
@@ -65,7 +66,7 @@ const createOrganisation = async (req, res, next) => {
         );
     }
 
-    const { email, name, description, address } = req.body;
+    const { contractAddress, email, name, description, address } = req.body;
 
     let coordinates;
     try {
@@ -74,27 +75,33 @@ const createOrganisation = async (req, res, next) => {
         return next(error);
     }
 
+
+
     const createdOrg = new Organisation({
+        contractAddress,
         email,
         name,
         description,
         address,
         location: coordinates,
-        logoImage: "uploads/images/0ac52fb8-4a3f-46c9-bd99-fd6d620f8908.png",
-        bannerImage: "uploads/images/e9d1e5e7-3234-4109-9b53-57f0180172ee.jpeg",
+        // logoImage: req.res.path,
+        bannerImage: req.file.path,
     });
 
+    console.log(createdOrg);
+
     try {
-        const sess = await mongoose.startSession();
-        sess.startTransaction();
-        await createdOrg.save({ session: sess });
-        await sess.commitTransaction();
+        // const sess = await mongoose.startSession();
+        // sess.startTransaction();
+        await createdOrg.save();
+        // await sess.commitTransaction();
     } catch (err) {
-        const error = new HttpError(
-            "Creating place failed, please try again.",
-            500
-        );
-        return next(error);
+        // const error = new HttpError(
+        //     "Creating org failed, please try again.",
+        //     500
+        // );
+        console.log(err);
+        return next(err);
     }
 
     res.status(201).json({ organisation: createdOrg });

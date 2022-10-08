@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const organisationSchema = new Schema({
+    contractAddress: {type: String, required: true},
     email: { type: String, required: true },
     name: { type: String, required: true },
     description: { type: String, required: true },
     address: { type: String, required: true },
-    logoImage: { type: String, required: true },
+    // logoImage: { type: String, required: true },
     bannerImage: { type: String, required: true },
     location: {
         lat: { type: Number, required: true },

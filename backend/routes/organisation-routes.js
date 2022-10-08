@@ -13,7 +13,7 @@ router.get("/:id",orgControllers.getOrganisation );
 //Middleware runs from left to right
 router.post(
     "/",
-    fileUpload.single('logoImage'),
+    // fileUpload.single('logoImage'),
     fileUpload.single('bannerImage'),
     [
         check("email").not().isEmpty(),
