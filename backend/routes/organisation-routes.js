@@ -9,6 +9,8 @@ router.get('/', orgControllers.getAllOrganisations);
 
 router.get("/:id",orgControllers.getOrganisation );
 
+router.get("/:address", orgControllers.getOrgByAddress);
+
 //you can register more than one middleware in a http request
 //Middleware runs from left to right
 router.post(

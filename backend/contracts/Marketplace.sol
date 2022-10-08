@@ -28,6 +28,8 @@ contract Marketplace is ReentrancyGuard {
         bool sold;
     }
 
+    
+
     // nft marketplace
     mapping(uint => Item) public items;
 
@@ -83,4 +85,21 @@ contract Marketplace is ReentrancyGuard {
         // emit Bought event
         emit Bought(address(item.nft), item.tokenId, item.seller, msg.sender);
     }
+
+
+    function donation(address _to) external payable {
+        require(msg.value > 0, "please enter a valid amount");
+        address payable to = payable(_to);
+        to.transfer(msg.value);
+    }
+
+    // function getUris(address organisation) external view {
+    //     string[] uris = 
+        
+    //     for (uint i = 0; i < itemCount; i++){
+    //         if(items[i].seller == organisation){
+
+    //         }
+    //     }
+    // }
 }

@@ -28,6 +28,28 @@ const getAllOrganisations = async (req, res, next) => {
     });
 };
 
+const getOrgByAddress = async (req, res, next) => {
+    
+
+    let organisation;
+    try {
+        //find returns an array
+        organisation = await Organisation.find({contractAddress: req.params.contractAddress});
+    } catch (err) {
+        const error = new HttpError(
+            "Fetching places failed please try again later",
+            500
+        );
+
+        return next(error);
+    }
+
+    //need to map the array result from find first
+    res.json({
+        organisation: organisation.toObject({ getters: true })
+    });
+};
+
 const getOrganisation = async (req, res, next) => {
     //params property holds an obj where the property holds the dynamic value
     const id = req.params.id;
@@ -110,3 +132,4 @@ const createOrganisation = async (req, res, next) => {
 exports.getAllOrganisations = getAllOrganisations;
 exports.createOrganisation = createOrganisation;
 exports.getOrganisation = getOrganisation;
+exports.getOrgByAddress = getOrgByAddress;
