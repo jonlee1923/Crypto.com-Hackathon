@@ -1,43 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "../Card/Card";
 import styles from "./NFTlist.module.css";
 import Button from "react-bootstrap/esm/Button";
+import { DnsContext } from "../../context/DnsContext";
 
 const NFTlist = (props) => {
     const [loading, setLoading] = useState(true);
     const [loadedNfts, setLoadedNfts] = useState();
-    // const image = require("../../assets/pollution.jpeg");
-    // const image1 = require("../../assets/lumeel.jpg");
+    const { connected, getNFTs } = useContext(DnsContext);
 
     const loadNFTs = async () => {
         setLoading(true);
-        const itemCount = await props.marketplace.itemCount();
-        let nfts = [];
-
-        for (let i = 1; i <= itemCount; i++) {
-            let item = await props.marketplace.items(i);
-
-            if (
-                item.seller.toLowerCase() === props.contractAddress &&
-                !item.sold
-            ) {
-                // get uri url from nft contract
-                const uri = await props.nft.tokenURI(item.tokenId);
-
-                // use uri to fetch the nft metadata stored on ipfs
-                const response = await fetch(uri);
-                const metadata = await response.json();
-
-                let nft = {
-                    name: metadata.name,
-                    image: metadata.image,
-                };
-
-                nfts.push(nft);
-            }
-        }
-        setLoading(false);
+        const nfts = await getNFTs(connected);
         setLoadedNfts(nfts);
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -46,11 +22,13 @@ const NFTlist = (props) => {
 
     return (
         <div>
-            {loading ? (
+            {loading && (
                 <div class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-            ) : (
+            )}
+
+            {!loading && loadedNfts && (
                 <div className={`${styles.NFTlist}`}>
                     {loadedNfts.map((nft) => (
                         <Card>

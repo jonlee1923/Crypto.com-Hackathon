@@ -19,7 +19,7 @@ import InvoicePage from "./components/invoiceUpload/InvoicePage";
 import { useHttpClient } from "./components/hooks/http-hook.js";
 
 function App() {
-    const { connected, connectWallet, marketPlace, nft } =
+    const { connected, connectWallet, mint } =
         useContext(DnsContext);
 
     const [loadedCompanies, setLoadedCompanies] = useState([]);
@@ -87,7 +87,7 @@ function App() {
                     <Route
                         path="invoice-upload"
                         element={
-                            <InvoicePage nft={nft} marketplace={marketPlace} />
+                            <InvoicePage mint={mint} />
                         }
                     />
                     {/* <Route path="/NFTlist" element={<NFTlist contractAddress={connected} marketPlace={marketPlace} nft={nft} />}/> */}

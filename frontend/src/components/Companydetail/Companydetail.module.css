@@ -31,7 +31,7 @@
 
 .sidebar{
     position:relative;
-    height:auto;
+    height:100%;
     margin-left:100px;
     width:100%;
 }
