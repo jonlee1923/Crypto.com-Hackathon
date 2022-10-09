@@ -13,14 +13,14 @@ const Companydetail = (props) => {
     });
     console.log("this is chosen company",chosenCompany);
 
-    const image = chosenCompany.image;
+    const image = chosenCompany[0].bannerImage;
 
     const logo = require("../../assets/lumeel.jpg");
-    const name = chosenCompany.name;
-    const description = chosenCompany.description;
+    const name = chosenCompany[0].name;
+    const description = chosenCompany[0].description;
     const scrollRef = useRef();
     
-    console.log("this is name",chosenCompany.name,chosenCompany[1]);
+    console.log("this is name",chosenCompany[0].name);
     const executeScroll = () => {
         scrollRef.current.scrollIntoView();
     };
