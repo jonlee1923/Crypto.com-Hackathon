@@ -22,8 +22,8 @@ const Mint = (props) => {
         mintAndList,
     } = useContext(DnsContext);
 
-    const projectId = "2FsiKT4NWorSiPJaFVz18VWAcDp";
-    const projectSecret = "38aa6b9d61db072a54b994c217f797b3";
+    const projectId = process.env.proj_id;
+    const projectSecret = process.env.secret_key;
     const auth =
         "Basic " +
         Buffer.from(projectId + ":" + projectSecret).toString("base64");
@@ -59,8 +59,6 @@ const Mint = (props) => {
         if (typeof file !== "undefined") {
             try {
                 const result = await client.add(file);
-                console.log("result from upload to ipfs");
-                console.log(result);
                 setImage(`https://lumeel.infura-ipfs.io/ipfs/${result.path}`);
             } catch (error) {
                 console.log("ipfs image upload error: ", error);
@@ -73,8 +71,6 @@ const Mint = (props) => {
         // mint nft
         // await (await props.nft.mint(uri)).wait();
         const tokenId = await mint(uri);
-        // console.log(tokenId);
-
         // approve marketplace to spend nft
         await mintAndList(tokenId);
         navigate("/");

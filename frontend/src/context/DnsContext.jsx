@@ -31,8 +31,13 @@ export const DnsProvider = ({ children }) => {
     const mint = async (uri) => {
         try {
             if (!ethereum) return alert("Please install metamask");
-            let id = await nftContract.mint(uri);
-            return id;
+            const tx = await nftContract.mint(uri);
+            const txReceipt = await tx.wait(1);
+            const tokenId = txReceipt.events[1].args.tokenId
+            const uriCheck = txReceipt.events[1].args.uri;
+            console.log(uriCheck);
+            console.log(tokenId._hex);
+            return tokenId;
         } catch (err) {
             console.log(err);
         }
@@ -40,23 +45,25 @@ export const DnsProvider = ({ children }) => {
 
     const mintAndList = async (id) => {
         try {
-        } catch (err) {
+            console.log(id);
             await nftContract.setApprovalForAll(
                 MarketplaceAddress.address,
                 true
             );
             await marketplaceContract.makeItem(NFTAddress.address, id);
-        }
+        } catch (err) {}
     };
 
     //all marketplace functions
     const getNFTs = async (address) => {
         let listedNfts;
-        const itemCount = await marketplaceContract.itemCount();
-        console.log("number of items", itemCount.toNumber());
+        const itemCount = await marketplaceContract.purchaseItem(1);
+        const receipt = await itemCount.wait();
+        const count = receipt.events[0].args.itemCount;
+        console.log("number of items", count);
 
         console.log("for loop");
-        for (let i = 1; i <= itemCount; i++) {
+        for (let i = 1; i <= count._hex; i++) {
             const item = await marketplaceContract.items(i);
             console.log(item);
             if (!item.sold && item.seller.toLowerCase() === connected) {
@@ -80,7 +87,7 @@ export const DnsProvider = ({ children }) => {
         }
         console.log(listedNfts);
 
-        return listedNfts;
+        
     };
 
     //misc functions

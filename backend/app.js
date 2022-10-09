@@ -58,7 +58,7 @@ app.use((error, req, res, next) => {
 
 mongoose
     .connect(
-        "mongodb+srv://jon1923:jon1923@cluster0.9x3g6zd.mongodb.net/crypto?retryWrites=true&w=majority"
+        `mongodb+srv://${process.env.MONGO_KEY}@cluster0.9x3g6zd.mongodb.net/crypto?retryWrites=true&w=majority`
     )
     .then(() => {
         app.listen(5000);

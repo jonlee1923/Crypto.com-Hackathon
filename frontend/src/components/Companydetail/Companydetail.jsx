@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Card from "../Card/Card";
 import styles from "./Companydetail.module.css";
 import { ArrowDown } from "react-bootstrap-icons";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const Companydetail = (props) => {
     const routerName = useParams().name;
@@ -84,7 +84,9 @@ const Companydetail = (props) => {
 
                 <div className={`${styles.rightbar}`}>
                     <section className={`${styles.maininfo}`}>
-                        <p>MAP</p>
+                    <NavLink to={'/NFTlist'}>
+                        NFT Gallery
+                    </NavLink>
                     </section>
 
                     <Card>

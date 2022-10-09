@@ -22,6 +22,7 @@ const Navbar2 = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+          <Nav.Link className={` ${styles.companylist}`} href="/invoice-upload">Mint your NFT</Nav.Link>
             <Nav.Link className={` ${styles.companylist}`} href="/company-list">List of Companies</Nav.Link>
             <Form className={`d-flex ${styles.form}`}>
               <Form.Control

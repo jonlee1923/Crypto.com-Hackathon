@@ -17,7 +17,7 @@ export default function InvoicePage() {
         setIsLoading(true);
         Tesseract.recognize(image, "eng", {
             logger: (m) => {
-                console.log(m);
+                // console.log(m);
                 if (m.status === "recognizing text") {
                     setProgress(parseInt(m.progress * 100));
                 }
