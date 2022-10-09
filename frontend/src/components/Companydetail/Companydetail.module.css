@@ -1,11 +1,13 @@
 .companydetail{
     width:fit-content;
     height:fit-content;
+    max-height:1000px;
 }
 
 .bgimg{
     width:100%;
     height:auto;
+    max-height:1000px;
     position:absolute;
 }
 
@@ -30,22 +32,26 @@
 .sidebar{
     position:relative;
     height:auto;
+    margin-left:100px;
+    width:100%;
 }
 
 .logo{
     position:relative;
-    left:150px;
+    left:0;
     border-radius:10px;
 }
 
 .name{
     position:relative;
-    left:275px;
+    left:0;
     font-size:30px;
 }
 
 .description{
     font-size:20px;
+    position:relative;
+    left:0;
 }
 
 .donation{

@@ -55,7 +55,7 @@ export default function Home() {
             <li>79% of plastic waste is sent to landfills or the ocean.</li>
             <li>while only 9% is recycled, and 12% gets incinerated.</li>
           </ul>
-          <h3>We need to address plastic waste pollution globablly</h3>
+          <h3>We need to address plastic waste pollution globally</h3>
           <p>
             The ultimate goal is to{" "}
             <strong>

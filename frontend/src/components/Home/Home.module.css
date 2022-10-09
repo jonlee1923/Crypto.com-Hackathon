@@ -2,8 +2,13 @@ h1{
     text-align:center;
     padding-bottom:10px;
     text-decoration:underline;
-    color: darkblue;
+    color: 	#026937;
 }
+
+/* body{
+  background-color:	#daffd6;
+} */
+
 /* Caption Section */
 .captionsection {
   position: relative;
