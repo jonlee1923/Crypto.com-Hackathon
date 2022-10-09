@@ -2,15 +2,25 @@ import React, { useRef, useState } from "react";
 import Card from "../Card/Card";
 import styles from "./Companydetail.module.css";
 import { ArrowDown } from "react-bootstrap-icons";
+import { useParams } from "react-router-dom";
 
 const Companydetail = (props) => {
-    const image = props.image;
+
+    const routerName = useParams().name;
+    // console.log(routerName);
+    const chosenCompany = props.loadedCompanies?.filter((company) => {
+        return company.name===routerName; 
+    });
+    console.log("this is chosen company",chosenCompany);
+
+    const image = chosenCompany.image;
 
     const logo = require("../../assets/lumeel.jpg");
-    const name = props.name;
-    const description = props.description;
+    const name = chosenCompany.name;
+    const description = chosenCompany.description;
     const scrollRef = useRef();
-
+    
+    console.log("this is name",chosenCompany.name,chosenCompany[1]);
     const executeScroll = () => {
         scrollRef.current.scrollIntoView();
     };

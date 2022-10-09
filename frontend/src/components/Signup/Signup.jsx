@@ -135,7 +135,7 @@ export default function Signup(props) {
                 <button
                     className=""
                     type="submit"
-                    disabled={!formState.isValid && !props.connected}
+                    disabled={!formState.isValid || !props.connected}
                 >
                     Submit
                 </button>
