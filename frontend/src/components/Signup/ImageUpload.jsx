@@ -22,6 +22,8 @@ export default function ImageUpload(props) {
             setPreviewUrl(fileReader.result);
         };
         fileReader.readAsDataURL(file);
+        
+        
     }, [file]);
 
     const pickedHandler = (event) => {

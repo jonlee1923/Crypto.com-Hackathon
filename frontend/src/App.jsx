@@ -9,6 +9,7 @@ import Companylist from "./components/Companylist/Companylist";
 import Signup from "./components/Signup/Signup.jsx"
 import Companydetail from "./components/Companydetail/Companydetail";
 import NFTlist from "./components/NFTlist/NFTlist";
+import InvoicePage from "./components/invoiceUpload/InvoicePage";
 
 function App() {
   const { connected, connectWallet, marketPlace, nft} = useContext(DnsContext);
@@ -22,6 +23,7 @@ function App() {
             <Route path="/company-list" element={<Companylist/>} />
             <Route path="/signup" element={<Signup contractAddress={connected}/>}/>
             <Route path="/companydetail" element={<Companydetail contractAddress={connected}/>}/>
+            <Route path="invoice-upload" element={<InvoicePage/>}/>
             {/* <Route path="/NFTlist" element={<NFTlist contractAddress={connected} marketPlace={marketPlace} nft={nft} />}/> */}
           </Routes>
       </React.Fragment>

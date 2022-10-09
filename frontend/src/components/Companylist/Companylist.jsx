@@ -23,18 +23,18 @@ export default function Companylist() {
             }
         };
 
-        console.log("checking");
         fetchCompanies();
-        console.log(loadedCompanies);
     }, [sendRequest]);
 
     return (
         <div>
-            {isLoading && !loadedCompanies ? (
+            {isLoading && (
                 <div class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-            ) : (
+            )}
+            {!isLoading &&
+                loadedCompanies &&
                 loadedCompanies.map((company) => (
                     <Companydetail
                         image={company.image}
@@ -43,8 +43,7 @@ export default function Companylist() {
                         address={company.address}
                         location={company.coordinates}
                     />
-                ))
-            )}
+                ))}
         </div>
     );
 }
