@@ -9,7 +9,6 @@ export default function Companylist() {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
     useEffect(() => {
-        console.log("hi");
 
         const fetchCompanies = async () => {
             try {
@@ -18,6 +17,9 @@ export default function Companylist() {
                 );
 
                 setLoadedCompanies(responseData.organisations);
+
+                console.log("checking image");
+                console.log(loadedCompanies);
             } catch (err) {
                 console.log(err);
             }
@@ -37,7 +39,7 @@ export default function Companylist() {
                 loadedCompanies &&
                 loadedCompanies.map((company) => (
                     <Companydetail
-                        image={company.image}
+                        image={company.bannerImage}
                         name={company.name}
                         description={company.description}
                         address={company.address}

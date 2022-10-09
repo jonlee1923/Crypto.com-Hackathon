@@ -5,8 +5,7 @@ import { ArrowDown } from "react-bootstrap-icons";
 
 const Companydetail = (props) => {
     const image = props.image;
-    console.log("image path");
-    console.log(props.image);
+
     const logo = require("../../assets/lumeel.jpg");
     const name = props.name;
     const description = props.description;
