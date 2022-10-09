@@ -7,7 +7,7 @@ Lumeel is a Web3 NFT Marketplace that allows the public to sponsor recycling org
 
 ### Installation:
 
-1. git clone https://github.com/jonlee1923/Crypto.com-Hackathon.git
+1. Run `git clone https://github.com/jonlee1923/Crypto.com-Hackathon.git`
 2. Run `npm install` in the root directory
 3. Open the terminal and change directory to the backend
 4. Run `npx hardhat compile` and `npx hardhat run scripts/deploy.js --network goerli`
