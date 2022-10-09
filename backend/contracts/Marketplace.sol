@@ -63,7 +63,7 @@ contract Marketplace is ReentrancyGuard {
         // transfer nft
         _nft.transferFrom(msg.sender, address(this), _tokenId);
         // add new item to items mapping
-        items[_tokenId] = Item(itemCount,_nft, _tokenId, payable(msg.sender), false);
+        items[_tokenId] = Item(itemCount, _nft, _tokenId, payable(msg.sender), false);
         // emit Offered event
         emit Offered(address(_nft), _tokenId, msg.sender);
     }
