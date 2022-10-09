@@ -15,10 +15,16 @@
 .brand{
     position:relative;
     right:100px;
-    height:100px;
+    height:auto;
+    width:200px;
 }
 
 .form{
     position:absolute;
     right:0;
+}
+
+.companylist{
+    position:relative;
+    top:15px;
 }

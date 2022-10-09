@@ -22,7 +22,7 @@ const Navbar2 = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/company-list">Company List</Nav.Link>
+            <Nav.Link className={` ${styles.companylist}`} href="/company-list">List of Companies</Nav.Link>
             <Form className={`d-flex ${styles.form}`}>
               <Form.Control
                 type="search"
@@ -36,7 +36,15 @@ const Navbar2 = (props) => {
               >
                 Search
               </Button>
-              {props.connected && <p>Connected</p>}
+              {props.connected && (
+                <Button
+                  type="button"
+                  className={`btn btn-secondary ${styles.connectwallet}`}
+                  disabled = {true}
+                >
+                  Connected!
+                </Button>
+              )}
               {!props.connected && (
                 <Button
                   type="button"
