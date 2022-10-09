@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import { Buffer } from "buffer";
 import { Row, Form, Button } from "react-bootstrap";
-// const ipfsClient = require("ipfs-http-client");
 import { create } from 'ipfs-http-client'
 
 
@@ -45,8 +44,8 @@ const Mint = (props) => {
     const mintThenList = async (result) => {
         const uri = `https://lumeel.infura-ipfs.io/ipfs/${result.path}`;
         // mint nft
-        await (await props.nft.mint(uri)).wait();
-
+        // await (await props.nft.mint(uri)).wait();
+        
         // get tokenId of new nft
         const id = await props.nft.tokenCount();
 

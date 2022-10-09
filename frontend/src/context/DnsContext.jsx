@@ -8,23 +8,6 @@ export const DnsContext = React.createContext();
 
 const { ethereum } = window;
 
-// const getMarketPlaceContract = () => {
-//     const provider = new ethers.providers.Web3Provider(ethereum);
-//     const signer = provider.getSigner();
-//     const marketplaceContract = new ethers.Contract(
-//         MarketplaceAddress,
-//         MarketplaceAbi,
-//         signer
-//     );
-//     const nftContract = new ethers.Contract(
-//         NFTAddress,
-//         NFTAbi,
-//         signer
-//     );
-
-//     return {marketplaceContract, nftContract};
-// };
-
 export const DnsProvider = ({ children }) => {
     const [connected, setCurrentAccount] = useState("");
 
@@ -39,6 +22,15 @@ export const DnsProvider = ({ children }) => {
         signer
     );
     const nftContract = new ethers.Contract(NFTAddress.address, NFTAbi.abi, signer);
+
+    const mint = async () => {
+        try{
+            if(!ethereum) return alert("Please install metamask");
+            await nftContract.mint();
+        }catch(err){
+            console.log(err);
+        }
+    }
 
     const checkIfWalletIsConnected = async () => {
         try {
@@ -88,8 +80,7 @@ export const DnsProvider = ({ children }) => {
                 connectWallet,
                 checkIfWalletIsConnected,
                 connected,
-                marketplaceContract,
-                nftContract,
+                mint,
             }}
         >
             {children}
