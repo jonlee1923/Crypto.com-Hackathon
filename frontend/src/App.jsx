@@ -90,7 +90,7 @@ function App() {
                             <InvoicePage mint={mint} />
                         }
                     />
-                    {/* <Route path="/NFTlist" element={<NFTlist contractAddress={connected} marketPlace={marketPlace} nft={nft} />}/> */}
+                    <Route path="/NFTlist" element={<NFTlist />}/>
                 </Routes>
             </React.Fragment>
         </BrowserRouter>

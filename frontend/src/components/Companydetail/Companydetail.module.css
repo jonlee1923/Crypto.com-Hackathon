@@ -31,9 +31,9 @@
 
 .sidebar{
     position:relative;
-    height:100%;
+    height:auto;
     margin-left:100px;
-    width:100%;
+    width:600px;
 }
 
 .logo{

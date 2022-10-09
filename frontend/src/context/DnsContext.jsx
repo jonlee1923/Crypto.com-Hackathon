@@ -53,9 +53,13 @@ export const DnsProvider = ({ children }) => {
     const getNFTs = async (address) => {
         let listedNfts;
         const itemCount = await marketplaceContract.itemCount();
+        console.log("number of items", itemCount.toNumber());
+
+        console.log("for loop");
         for (let i = 1; i <= itemCount; i++) {
             const item = await marketplaceContract.items(i);
-            if (!item.sold && item.seller.toLowerCase() === address) {
+            console.log(item);
+            if (!item.sold && item.seller.toLowerCase() === connected) {
                 // get uri url from nft contract
                 const uri = await nftContract.tokenURI(item.tokenId);
 
@@ -74,6 +78,7 @@ export const DnsProvider = ({ children }) => {
                 listedNfts.push(nft);
             }
         }
+        console.log(listedNfts);
 
         return listedNfts;
     };

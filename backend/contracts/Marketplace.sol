@@ -33,6 +33,8 @@ contract Marketplace is ReentrancyGuard {
     // nft marketplace
     mapping(uint => Item) public items;
 
+    event NumOfItems(uint indexed itemCount);
+
     event Offered(address indexed nft, uint tokenId, address indexed seller);
     event Bought(
         address indexed nft,
@@ -71,7 +73,7 @@ contract Marketplace is ReentrancyGuard {
     function purchaseItem(uint _tokenId) external payable nonReentrant {
         // uint price = uint(priceFeed());        
         Item storage item = items[_tokenId];
-        require(item.itemCount != 0, "item doesn't exist");
+        // require(item.itemCount != 0, "item doesn't exist");
         require(!item.sold, "item already sold");
         require(msg.value >= 133240000000, "insufficient value");
 
@@ -93,13 +95,7 @@ contract Marketplace is ReentrancyGuard {
         to.transfer(msg.value);
     }
 
-    // function getUris(address organisation) external view {
-    //     string[] uris = 
-        
-    //     for (uint i = 0; i < itemCount; i++){
-    //         if(items[i].seller == organisation){
-
-    //         }
-    //     }
-    // }
+    function getItemCount() external{
+        emit NumOfItems(itemCount);
+    }
 }

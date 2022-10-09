@@ -5,13 +5,15 @@ import Button from "react-bootstrap/esm/Button";
 import { DnsContext } from "../../context/DnsContext";
 
 const NFTlist = (props) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [loadedNfts, setLoadedNfts] = useState();
     const { connected, getNFTs } = useContext(DnsContext);
 
     const loadNFTs = async () => {
         setLoading(true);
         const nfts = await getNFTs(connected);
+        console.log("testing");
+        console.log(nfts);
         setLoadedNfts(nfts);
         setLoading(false);
     };

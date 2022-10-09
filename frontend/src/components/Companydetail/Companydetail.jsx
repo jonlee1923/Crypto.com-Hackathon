@@ -5,13 +5,12 @@ import { ArrowDown } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 
 const Companydetail = (props) => {
-
     const routerName = useParams().name;
     // console.log(routerName);
     const chosenCompany = props.loadedCompanies?.filter((company) => {
-        return company.name===routerName; 
+        return company.name === routerName;
     });
-    console.log("this is chosen company",chosenCompany);
+    console.log("this is chosen company", chosenCompany);
 
     const image = chosenCompany[0].bannerImage;
 
@@ -19,8 +18,8 @@ const Companydetail = (props) => {
     const name = chosenCompany[0].name;
     const description = chosenCompany[0].description;
     const scrollRef = useRef();
-    
-    console.log("this is name",chosenCompany[0].name);
+
+    console.log("this is name", chosenCompany[0].name);
     const executeScroll = () => {
         scrollRef.current.scrollIntoView();
     };
@@ -53,7 +52,11 @@ const Companydetail = (props) => {
     return (
         <div className={`${styles.companydetail}`}>
             <section className={`${styles.backgroundimgsection}`}>
-                <img src={`http://localhost:5000/${image}`} alt="image" className={`${styles.bgimg}`} />
+                <img
+                    src={`http://localhost:5000/${image}`}
+                    alt="image"
+                    className={`${styles.bgimg}`}
+                />
                 <ArrowDown
                     onClick={executeScroll}
                     size={98}
@@ -61,8 +64,8 @@ const Companydetail = (props) => {
                 />
             </section>
             <div className={`${styles.cover}`}>
-                <section className={`${styles.sidebar}`}>
-                    <Card>
+                <Card>
+                    <section className={`${styles.sidebar}`}>
                         <img
                             src={logo}
                             alt="logo"
@@ -76,8 +79,8 @@ const Companydetail = (props) => {
                             About: <br />
                             {description}
                         </p>
-                    </Card>
-                </section>
+                    </section>
+                </Card>
 
                 <div className={`${styles.rightbar}`}>
                     <section className={`${styles.maininfo}`}>

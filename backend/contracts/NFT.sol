@@ -11,15 +11,18 @@ contract NFT is ERC721URIStorage {
 
     uint public tokenCount = 0;
     address public organisation;
+
+    event minted(uint256 indexed tokenId, string indexed uri);
+
     constructor(string memory name, string memory symbol) ERC721(name, symbol){
         organisation = msg.sender;
     }
-    function mint(string memory _tokenURI) external returns(uint) {
+    function mint(string memory _tokenURI) external{
         // newTokenId = _tokenIds.current();
         tokenCount++;
         _safeMint(msg.sender, tokenCount);
         // _tokenIds.increment();
         _setTokenURI(tokenCount, _tokenURI);
-        return tokenCount;
+        emit minted(tokenCount, _tokenURI);
     }
 }
