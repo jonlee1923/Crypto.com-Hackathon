@@ -4,19 +4,19 @@ Lumeel is a Web3 NFT Marketplace that allows the public to sponsor recycling org
 
 
 ## Getting Started
-1. Set up an account in mongodb and edit the connection link
-2. Set up an account with infura to get credentials
-3. Set up a metamask wallet to insert private key
+1. Run `git clone https://github.com/jonlee1923/Crypto.com-Hackathon.git`
+2. Create a .env file in each folder
+3. Set up an account in mongodb and edit the connection link
+4. Set up an account with infura to get credentials
+5. Set up a metamask wallet to insert private key
 
 ### Installation:
-
-1. Run `git clone https://github.com/jonlee1923/Crypto.com-Hackathon.git`
-2. Run `npm install` in the root directory
-3. Open the terminal and change directory to the backend
-4. Run `npx hardhat compile` and `npx hardhat run scripts/deploy.js --network goerli`
-5. Run `npm start` to launch the backend
-6. Open another terminal and change directory to the frontend
-7. Run `npm start` to launch the frontend locally
+1. Run `npm install` in the root directory
+2. Open the terminal and change directory to the backend
+3. Run `npx hardhat compile` and `npx hardhat run scripts/deploy.js --network goerli`
+4. Run `npm start` to launch the backend
+5. Open another terminal and change directory to the frontend
+6. Run `npm start` to launch the frontend locally
 
 ## Usage 
 
