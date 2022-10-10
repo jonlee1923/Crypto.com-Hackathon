@@ -4,6 +4,9 @@ Lumeel is a Web3 NFT Marketplace that allows the public to sponsor recycling org
 
 
 ## Getting Started
+1. Set up an account in mongodb and edit the connection link
+2. Set up an account with infura to get credentials
+3. Set up a metamask wallet to insert private key
 
 ### Installation:
 
